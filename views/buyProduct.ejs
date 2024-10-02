@@ -1,0 +1,21 @@
+<%- include('partial/start.ejs') %>
+
+<!-- Link to the external CSS file -->
+<link rel="stylesheet" href="/styles/buyProduct.css">
+
+<h2 class="purchase-title">PURCHASE PRODUCT</h2>
+<div class="container">
+    <div class="card text-center">
+        <img src="<%= product.image %>" class="card-img-top" alt="<%= product.name %>">
+        <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text"><%= product.description %></p>
+            <p class="card-text"><strong>$<%= product.price.toFixed(2) %></strong></p>
+            <form action="/purchase/<%= product.id %>" method="POST">
+                <button type="submit" class="btn btn-success">Confirm Purchase</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partial/end.ejs') %>

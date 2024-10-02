@@ -1,0 +1,39 @@
+<%- include('partial/start.ejs') %>
+
+<div class="fan-messages">
+    <h2 class="fan-messages-title">Fan Messages</h2>
+    <p class="fan-messages-description">Which Taylor Swift merchandise do you love? Whether it’s cozy hoodies, stunning vinyl records, or beautiful jewelry, we want to hear about your favorites!</p>   
+    <p> Leave a comment below and share what you can’t get enough of!</p>
+    <br>
+    <form action="/message" method="POST">
+        <textarea name="comment" placeholder="Share your thoughts about Taylor Swift Merchandise..." required></textarea>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+
+    <div class="comments">
+        <% if (comments && comments.length > 0) { %>
+            <% comments.forEach(function(comment) { %>
+                <div class="comment">
+                    <p><strong>Anonymous:</strong> <%= comment.text %></p>
+                    <p><em>Submitted on: <%= comment.date %></em></p> <!-- Display the date and time -->
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No comments yet. Be the first to share!</p>
+        <% } %>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<div class="message-container">
+    <h1>Thank You!</h1>
+    <p>for your comment!</p>
+    <p>Just like Taylor Swift sings, 'This is a state of grace, this is the worthwhile fight.' Your support means the world, and together, we'll keep this Swiftie love story going.</p>
+    <p>Keep shining like the stars!</p>
+    <a href="/contact" class="btn">Return to Contact Page</a>
+</div>
+
+<%- include('partial/end.ejs') %>
